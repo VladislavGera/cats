@@ -1,0 +1,25 @@
+<mat-toolbar color="primary">
+  <form class="form" [formGroup]="filterForm" (ngSubmit)="getFilterValue()">
+    <div class="select">
+      <mat-label for="portion">Portion</mat-label>
+      <mat-select id="portion" name="portion" formControlName="portion">
+        <mat-option value="3"> 3 </mat-option>
+        <mat-option value="5"> 5 </mat-option>
+        <mat-option value="10"> 10 </mat-option>
+      </mat-select>
+    </div>
+
+    <div class="select">
+      <mat-label for="breed"  > Сhoose a breed of cat</mat-label>
+      <mat-select id="breed" name="breed" formControlName="breed">
+        <mat-option *ngFor="let item of catsList" [value]="item.breed_ids">
+          {{ item.breed }}
+        </mat-option>
+      </mat-select>
+    </div>
+
+    <span class="example-spacer"></span>
+
+    <button type="submit" mat-raised-button color="accent">Search</button>
+  </form>
+</mat-toolbar>
