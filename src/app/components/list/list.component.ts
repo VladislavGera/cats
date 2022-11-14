@@ -16,13 +16,13 @@ import { Subscription } from 'rxjs';
 export class ListComponent implements OnInit, OnDestroy {
   public list!: CardModel[];
   public load!: boolean;
-  public loadMore!: boolean;
+  public isLoadMore!: boolean;
   public subscriptionGetPhotos!: Subscription;
   @Input() getList: any;
 
   constructor(private api: HttpService, private store: Store<AppModel>) {}
 
-  public lodeMore() {
+  public loadMore() {
     this.store.dispatch(setLoader({ data: true }));
     this.store.dispatch(increasePage());
     this.getList();
@@ -34,7 +34,7 @@ export class ListComponent implements OnInit, OnDestroy {
       .subscribe((data) => {
         this.list = data.list;
         this.load = data.load;
-        this.loadMore = data.loadMore;
+        this.isLoadMore = data.loadMore;
       });
   }
 

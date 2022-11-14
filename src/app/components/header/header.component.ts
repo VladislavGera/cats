@@ -65,8 +65,8 @@ export class HeaderComponent {
   constructor(private api: HttpService, private store: Store<AppModel>) {}
 
   filterForm = new FormGroup({
-    portion: new FormControl(10),
-    breed: new FormControl('beng'),
+    portion: new FormControl(`10`),
+    breed: new FormControl(`beng`),
   });
 
   public getFilterValue() {
